@@ -1,0 +1,10 @@
+{
+  "ZAPushPlus": {
+    "name": "ZAPushPlus",
+    "description": "ZAPushPlus",
+    "version": "1.0",
+    "icon": "signin.png",
+    "author": "za",
+    "level": 1
+  }
+}

@@ -10,7 +10,7 @@ from app.log import logger
 
 class PushPlusMsg(_PluginBase):
     # 插件名称
-    plugin_name = "PushPlus消息推送"
+    plugin_name = "ZAPushPlus消息推送"
     # 插件描述
     plugin_desc = "支持使用PushPlus发送消息通知。"
     # 插件图标
@@ -18,11 +18,11 @@ class PushPlusMsg(_PluginBase):
     # 插件版本
     plugin_version = "1.0"
     # 插件作者
-    plugin_author = "cheng"
+    plugin_author = "zau11berer"
     # 作者主页
-    author_url = "https://github.com/small-ora"
+    author_url = "https://github.com/zau11berer"
     # 插件配置项ID前缀
-    plugin_config_prefix = "pushplusmsg_"
+    plugin_config_prefix = "zapushplus_"
     # 加载顺序
     plugin_order = 29
     # 可使用的用户级别
