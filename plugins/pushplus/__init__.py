@@ -10,7 +10,7 @@ from app.log import logger
 
 class PushPlusMsg(_PluginBase):
     # 插件名称
-    plugin_name = "ZAPushPlus消息推送"
+    plugin_name = "ZAPushPlus"
     # 插件描述
     plugin_desc = "支持使用PushPlus发送消息通知。"
     # 插件图标
@@ -18,7 +18,7 @@ class PushPlusMsg(_PluginBase):
     # 插件版本
     plugin_version = "1.0"
     # 插件作者
-    plugin_author = "zau11berer"
+    plugin_author = "za"
     # 作者主页
     author_url = "https://github.com/zau11berer"
     # 插件配置项ID前缀
