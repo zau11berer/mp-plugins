@@ -191,8 +191,8 @@ class PushPlusMsg(_PluginBase):
         msg_body = event.event_data
         # 渠道
         channel = msg_body.get("channel")
-        if channel:
-            return
+        webhook = msg_body.get("webhook")
+
         # 类型
         msg_type: NotificationType = msg_body.get("type")
         # 标题
@@ -216,7 +216,8 @@ class PushPlusMsg(_PluginBase):
                 "title": title,
                 "content": text,
                 "template": "txt",
-                "channel":"wechat"
+                "channel": channel,
+                "webhook": webhook
             }
             res = RequestUtils(content_type="application/json").post_res(sc_url, json=event_info)
             if res and res.status_code == 200:
