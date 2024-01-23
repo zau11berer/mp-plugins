@@ -31,12 +31,16 @@ class PushPlusMsg(_PluginBase):
     # 私有属性
     _enabled = False
     _token = None
+    _channel = None
+    _webhook = None
     _msgtypes = []
 
     def init_plugin(self, config: dict = None):
         if config:
             self._enabled = config.get("enabled")
             self._token = config.get("token")
+            self._channel = config.get("channel")
+            self._webhook = config.get("webhook")
             self._msgtypes = config.get("msgtypes") or []
 
     def get_state(self) -> bool:
@@ -91,7 +95,7 @@ class PushPlusMsg(_PluginBase):
                             {
                                 'component': 'VCol',
                                 'props': {
-                                    'cols': 12
+                                    'cols': 12,
                                 },
                                 'content': [
                                     {
@@ -112,7 +116,8 @@ class PushPlusMsg(_PluginBase):
                             {
                                 'component': 'VCol',
                                 'props': {
-                                    'cols': 12
+                                    'cols': 12,
+                                    'md': 6
                                 },
                                 'content': [
                                     {
@@ -120,7 +125,6 @@ class PushPlusMsg(_PluginBase):
                                         'props': {
                                             'model': 'channel',
                                             'label': 'channel',
-                                            'placeholder': 'wechat',
                                         }
                                     }
                                 ]
@@ -128,7 +132,8 @@ class PushPlusMsg(_PluginBase):
                             {
                                 'component': 'VCol',
                                 'props': {
-                                    'cols': 12
+                                    'cols': 12,
+                                    'md': 6
                                 },
                                 'content': [
                                     {
@@ -136,7 +141,6 @@ class PushPlusMsg(_PluginBase):
                                         'props': {
                                             'model': 'webhook',
                                             'label': 'webhook',
-                                            'placeholder': '',
                                         }
                                     }
                                 ]
@@ -171,6 +175,8 @@ class PushPlusMsg(_PluginBase):
         ], {
             "enabled": False,
             'token': '',
+            'channel': '',
+            'webhook': '',
             'msgtypes': []
         }
 
@@ -190,8 +196,6 @@ class PushPlusMsg(_PluginBase):
 
         msg_body = event.event_data
         # 渠道
-        channel = msg_body.get("channel")
-        webhook = msg_body.get("webhook")
 
         # 类型
         msg_type: NotificationType = msg_body.get("type")
@@ -216,8 +220,8 @@ class PushPlusMsg(_PluginBase):
                 "title": title,
                 "content": text,
                 "template": "txt",
-                "channel": channel,
-                "webhook": webhook
+                "channel": self._channel,
+                "webhook": self._webhook
             }
             res = RequestUtils(content_type="application/json").post_res(sc_url, json=event_info)
             if res and res.status_code == 200:
