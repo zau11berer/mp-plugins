@@ -225,7 +225,7 @@ class PushPlusMsg(_PluginBase):
                 code = ret_json.get('code')
                 msg = ret_json.get('msg')
                 if code == 200:
-                    logger.info("PushPlus消息发送成功")
+                    logger.info("PushPlus消息发送：", msg)
                 else:
                     logger.warn(f"PushPlus消息发送，接口返回失败，错误码：{code}，错误原因：{msg}")
             elif res is not None:
