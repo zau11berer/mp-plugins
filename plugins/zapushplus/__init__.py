@@ -8,7 +8,7 @@ from typing import Any, List, Dict, Tuple
 from app.log import logger
 
 
-class PushPlusMsg(_PluginBase):
+class ZAPushPlus(_PluginBase):
     # 插件名称
     plugin_name = "ZAPushPlus"
     # 插件描述
