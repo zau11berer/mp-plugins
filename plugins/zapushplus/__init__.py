@@ -16,7 +16,7 @@ class PushPlusMsg(_PluginBase):
     # 插件图标
     plugin_icon = "Pushplus_A.png"
     # 插件版本
-    plugin_version = "1.0"
+    plugin_version = "1.1"
     # 插件作者
     plugin_author = "za"
     # 作者主页
@@ -24,7 +24,7 @@ class PushPlusMsg(_PluginBase):
     # 插件配置项ID前缀
     plugin_config_prefix = "zapushplus_"
     # 加载顺序
-    plugin_order = 29
+    plugin_order = 39
     # 可使用的用户级别
     auth_level = 1
 
